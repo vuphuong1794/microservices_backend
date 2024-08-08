@@ -46,6 +46,7 @@ const exists = async (key) => {
   }
 };
 
+//neu co key ton tai thi setnx moi lam viec, thuc hien dung 1 lan (hoat dong nguyen tu)
 const setnx = async (key, value) => {
   try {
     const result = await client.set(key, value, { NX: true });
