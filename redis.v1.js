@@ -9,7 +9,7 @@ app.get("/order", async (req, res)=>{
     const slTonKho = 10;
 
     //ten cua san pham la IPhone 13
-    const keyName = "IPhone 13";
+    const keyName = "IPhone13";
 
     //gia su moi lan mua thi luong tieu thu hang ton kho la 1
     const slMua = 1;
@@ -22,18 +22,23 @@ app.get("/order", async (req, res)=>{
     }
 
     //lay so luong ban ra
-    const slBanRa = await get(keyName)
+    let slBanRa = await get(keyName)
+    console.log(`Truoc khi user order thanh cong thi so luong ban ra === ${slBanRa}`)
     //neu so luong ban ra + so luong mua (slMua) > slTonKho return failed!
     //vdu so luong ban ban = 9, them 1 nguoi mua cuoi cung nua la 10 = slTonKho nen van hop le
 
-    if(slBanRa + slMua > slTonKho){
+    if(+slBanRa + slMua > slTonKho){
         console.log("HET HANG");
-        return;
+        return res.json({
+            status: "error",
+            msg:" HET HANG",
+            time
+        });
     }
 
     //neu user order thanh cong 
-    await incrby(keyName, slMua);
-
+    slBanRa = await incrby(keyName, slMua);
+    console.log(`Sau khi user order thanh cong thi so luong ban ra === ${slBanRa}`)
 
     return res.json({
         status: "success",
