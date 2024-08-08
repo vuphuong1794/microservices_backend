@@ -39,7 +39,9 @@ app.get("/order", async (req, res)=>{
     //neu user order thanh cong 
     slBanRa = await incrby(keyName, slMua);
     console.log(`Sau khi user order thanh cong thi so luong ban ra === ${slBanRa}`)
-
+    if(slBanRa > slTonKho){
+        await setnx("ban qua roi", slBanRa - slTonKho)
+    }
     return res.json({
         status: "success",
         msg: "ok",
