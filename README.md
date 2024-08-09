@@ -13,4 +13,4 @@
 10) decrby key (giảm giá trị cho value của key xuống tùy thích)
 11) expire key second (set thời gian hết hạn cho key)
 11) ttl key (kiểm tra thời gian tồn tại của key)
-12) key * (hiển thị ra tất cả các key đã set)
+12) keys * (hiển thị ra tất cả các key đã set)
