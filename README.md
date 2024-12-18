@@ -1,4 +1,4 @@
-## chạy redis trên ubuntu thông qua Snap package manager
+## Chạy Redis trên Ubuntu thông qua Snap Package Manager
 1) sudo snap services (xem cái nào đang chạy hay dừng)
 2) sudo snap start redis (chạy redis)
 3) redis.cli (truy cập vào redis)
