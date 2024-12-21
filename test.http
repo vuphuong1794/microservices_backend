@@ -12,7 +12,7 @@ POST http://localhost:8000/v1/api/transfer
 Content-Type: application/json
 
 {
-    "from": "1",
-    "to": "1",
+    "fromId": 1,
+    "toId": 2,
     "amount": 10
 }
